@@ -31,12 +31,12 @@ CREATE LANGUAGE plluau
 
 -- PL template installation:
 
---INSERT INTO pg_catalog.pg_pltemplate
---  VALUES ('pllua', true, 'pllua_call_handler', 'pllua_validator',
---    '$libdir/pllua', NULL);
+-- INSERT INTO pg_catalog.pg_pltemplate
+--        (tmplname, tmpltrusted, tmpldbacreate, tmplhandler, tmplinline, tmplvalidator, tmpllibrary, tmplacl)
+--        VALUES ('pllua', TRUE, TRUE, 'pllua_call_handler', NULL, 'pllua_validator', '$libdir/pllua', NULL);
 
---INSERT INTO pg_catalog.pg_pltemplate
---  VALUES ('plluau', false, 'plluau_call_handler', 'plluau_validator',
---    '$libdir/pllua', NULL);
+-- INSERT INTO pg_catalog.pg_pltemplate
+--        (tmplname, tmpltrusted, tmpldbacreate, tmplhandler, tmplinline, tmplvalidator, tmpllibrary, tmplacl)
+--       VALUES ('plluau', FALSE, FALSE, 'plluau_call_handler', NULL, 'plluau_validator', '$libdir/pllua', NULL);
 
 -- vim: set syn=sql:

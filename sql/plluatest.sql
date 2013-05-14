@@ -159,7 +159,12 @@ $$ LANGUAGE pllua;
 SELECT * FROM get_rows('name');
 
 
-CREATE TABLE tree (id INT PRIMARY KEY, lchild INT, rchild INT);
+CREATE TABLE tree (
+  id INT,
+  lchild INT,
+  rchild INT,
+  CONSTRAINT tree_id PRIMARY KEY (id)
+);
 
 CREATE FUNCTION filltree (t text, n int) RETURNS void AS $$
   local p = server.prepare("insert into " .. t .. " values($1, $2, $3)",
@@ -289,9 +294,9 @@ SELECT echo_mytype((1::int2, 666.777, array[1.0, 2.0]) );
 
 -- body reload
 SELECT hello('PostgreSQL');
-CREATE OR REPLACE FUNCTION hello(xname text)
+CREATE OR REPLACE FUNCTION hello(name text)
 RETURNS text AS $$
-  return string.format("Bye, %s!", xname)
+  return string.format("Bye, %s!", name)
 $$ LANGUAGE pllua;
 SELECT hello('PostgreSQL');
 

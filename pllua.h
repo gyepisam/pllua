@@ -25,6 +25,7 @@
 #include <utils/datum.h>
 #include <utils/builtins.h>
 #include <utils/array.h>
+#include <utils/rel.h>
 /* Lua */
 #include <lua.h>
 #include <lualib.h>

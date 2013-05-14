@@ -8,6 +8,9 @@ LUAINC =
 LUALIB = -llua
 
 # Debian/Ubuntu
+# You may need to install the server-dev package
+# corresponding to your server
+# 	sudo apt-get install postgresql-server-dev-9.2
 #LUAINC = -I/usr/include/lua5.1
 #LUALIB = -llua5.1
 
@@ -31,4 +34,3 @@ SHLIB_LINK = $(LUALIB)
 PG_CONFIG = pg_config
 PGXS := $(shell $(PG_CONFIG) --pgxs)
 include $(PGXS)
-

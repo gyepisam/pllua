@@ -1,0 +1,20 @@
+#!/bin/sh
+
+set -e
+
+testdb=${1:-pllua_testing}
+
+d=$(dirname $0)
+o=/tmp/plltest.out
+e=$d/expected/plluatest.out
+
+dropdb $testdb 2> /dev/null || :
+createdb $testdb
+psql $testdb < $d/sql/plluatest.sql > $o 
+
+if cmp -s $e $o ; then
+    dropdb $testdb
+    rm $o
+else
+    diff -Bub $e $o
+fi
