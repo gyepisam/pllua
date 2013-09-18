@@ -4,8 +4,8 @@
 # Lua specific
 
 # General
-LUAINC =
-LUALIB = -llua
+LUAINC ?=
+LUALIB ?= -llua
 
 # Debian/Ubuntu
 # You may need to install the server-dev package
@@ -31,6 +31,6 @@ PG_CPPFLAGS = $(LUAINC)
 SHLIB_LINK = $(LUALIB)
 
 #PG_CONFIG = /usr/local/pgsql/bin/pg_config
-PG_CONFIG = pg_config
+PG_CONFIG ?= pg_config
 PGXS := $(shell $(PG_CONFIG) --pgxs)
 include $(PGXS)
