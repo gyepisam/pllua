@@ -1,0 +1,7 @@
+# plpgsql extension
+comment = 'PL/Lua procedural language'
+default_version = '0.3'
+module_pathname = '$libdir/pllua'
+relocatable = false
+schema = pg_catalog
+superuser = false
